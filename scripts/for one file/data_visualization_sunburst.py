@@ -3,21 +3,24 @@ import plotly.express as px
 import plotly.io as pio
 
 ### Import data from the excel file and delete the null rows
-df = pd.read_excel('x_final_data.xlsx')
+df = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx')
+
+### Sort the dataframe based on the sentiment scores in ascending order
+df = df.sort_values(by='sentiment scores')
 
 ###create our lists with parent and child values
 comment = [str(x) for x in df['comment'].values.tolist()]
-print('parent: ', comment)
+# print('parent: ', comment)
 
 reply_int = [str(x) for x in df['reply'].values.tolist()]
 reply = [str(x) for x in reply_int]
-print('child: ' , reply)
+# print('child: ' , reply)
 
-label = [str(x) for x in df['comment text'].values.tolist()]
-print('label: ' , label)
+label = [str(x) for x in df['comment text (eng)'].values.tolist()]
+# print('label: ' , label)
 
 value = df['sentiment scores'].values.tolist()
-print('value: ', value)
+# print('value: ', value)
 
 ###create our data as dictionary
 data = dict(
@@ -45,7 +48,7 @@ fig = px.sunburst(
     branchvalues="total",  ### or 'remainder'
     # hover_name="comment",
     # hover_data={'comment': False},
-    title="41. Magistrale Wandsbek",
+    title="38. Greensam",
     template='ggplot2',  ### 'ggplot2', 'seaborn', 'simple_white', 'plotly',
                          ### 'plotly_white', 'plotly_dark', 'presentation',
                          ### 'xgridoff', 'ygridoff', 'gridon', 'none'
@@ -62,10 +65,27 @@ fig.update_layout(margin=dict(t=50, l=0, r=0, b=0),
 #                      colorbar_thickness=15,
 #                      colorbar_tickfont_size=10)
 
+fig.update_coloraxes(
+    colorbar_len=0.5,
+    colorbar=dict(
+        title="Sentiment Score",
+        titleside='right',
+        thickness=20,
+        tickmode="auto",
+        ticks="inside",
+        ticklen=5,
+        tickfont=dict(size=10),
+        titlefont=dict(size=12)
+    )
+)
+
 ### hide the colorbar legend
-fig.update_coloraxes(showscale=False)
+fig.update_coloraxes(showscale=True)
 
 fig.show()
 
-#save the plot as png or jped
-pio.write_image(fig, '41. Magistrale Wandsbek.png', format='png', width=1500, height=1500)
+# save the plot as PNG
+pio.write_image(fig, '/results/41. Magistrale Wandsbek.png', format='png', width=2000, height=1200)
+
+# save the plot as HTML
+pio.write_html(fig, '/results/41. Magistrale Wandsbek.html')
