@@ -24,7 +24,12 @@ dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Dr
 df = pd.read_excel(os.path.join(dir_path, 'conceptioncomments.xlsx'))
 
 # Modify column names to make it more readable
-df.rename(columns={'Contribution ID': 'topic', 'Comment ID': 'reply', 'Comment Subject': 'comment', 'Comment Text': 'comment text','created (UTC)': 'timestamp'}, inplace=True)
+df.rename(columns={'Contribution ID': 'topic',
+                   'Comment ID': 'reply',
+                   'Comment Subject': 'comment',
+                   'Comment Text': 'comment text',
+                   'created (UTC)': 'timestamp'},
+          inplace=True)
 
 # Modify topic and comment names in columns
 df['topic'] = 'topic ' + df['topic'].astype(str)
