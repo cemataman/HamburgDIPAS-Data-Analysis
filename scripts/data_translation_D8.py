@@ -5,7 +5,9 @@ from googletrans import Translator
 translator = Translator()
 
 ### Import data from the excel file
-df_ger = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx')
+# Define the directory path as a variable
+dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/deneme.xlsx'
+df_ger = pd.read_excel(dir_path)
 
 # create a new column to store the translated comments
 df_ger['comment text (eng)'] = ''
@@ -25,5 +27,5 @@ for i in range(len(df_ger['comment text'])):
             continue
 
 ### save the translated data as an excel file
-df_ger.to_excel("/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx", index=False)
+df_ger.to_excel(dir_path, index=False)
 

@@ -1,3 +1,4 @@
 data/
 venv/bin
-results/**/*.html
+results/
+scripts/data_visualization_interactive_map/map_data

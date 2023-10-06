@@ -8,7 +8,10 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 ### Import data from the excel file
-df_en = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx')
+# Define the directory path as a variable
+dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/deneme.xlsx'
+df_en = pd.read_excel(dir_path)
+
 
 # Create an instance of the sentiment analyzer
 from nltk.sentiment import SentimentIntensityAnalyzer
@@ -37,4 +40,4 @@ compound_df = df_sent.loc[:, 'compound']
 compound_list = compound_df.values.tolist() # put the values as a list to add into the dataframe
 df_en['sentiment scores'] = compound_list # add the results as a new column
 
-df_en.to_excel("/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx", index=False)
+df_en.to_excel(dir_path, index=False)

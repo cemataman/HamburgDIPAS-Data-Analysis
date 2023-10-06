@@ -3,7 +3,7 @@ import plotly.express as px
 import plotly.io as pio
 
 ### Import data from the excel file and delete the null rows
-df = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx')
+df = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/deneme.xlsx')
 
 ### Sort the dataframe based on the sentiment scores in ascending order
 df = df.sort_values(by='sentiment scores')
@@ -83,9 +83,9 @@ fig.update_coloraxes(
 fig.update_coloraxes(showscale=True)
 
 fig.show()
-
-# save the plot as PNG
-pio.write_image(fig, '/results/41. Magistrale Wandsbek.png', format='png', width=2000, height=1200)
-
-# save the plot as HTML
-pio.write_html(fig, '/results/41. Magistrale Wandsbek.html')
+#
+# # save the plot as PNG
+# pio.write_image(fig, '/results/41. Magistrale Wandsbek.png', format='png', width=2000, height=1200)
+#
+# # save the plot as HTML
+# pio.write_html(fig, '/results/41. Magistrale Wandsbek.html')
