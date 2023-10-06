@@ -6,7 +6,7 @@ translator = Translator()
 
 ### Import data from the excel file
 # Define the directory path as a variable
-dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/deneme.xlsx'
+dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/xx. Stadteingang Elbbruecken/conceptioncomments_structured.xlsx'
 df_ger = pd.read_excel(dir_path)
 
 # create a new column to store the translated comments

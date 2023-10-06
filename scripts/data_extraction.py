@@ -17,7 +17,7 @@ pd.set_option('display.max_columns',10)
 
 ### THIS CODE IS FOR DATA EXTRACTION FROM ONE FILE ###
 # Define the directory path as a variable
-dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek'
+dir_path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/xx. Stadteingang Elbbruecken'
 
 # Import data from the Excel file
 df = pd.read_excel(os.path.join(dir_path, 'conceptioncomments.xlsx'))
@@ -125,14 +125,13 @@ mean = df_time.loc[df_time['normalized_column'] != 0, 'normalized_column'].mean(
 # replace all 0 values in column 'normalized_column' with 1 --> this is for visualization purposes
 df_time['normalized_column'] = df_time['normalized_column'].replace(0, 1)
 
-
 # Count the number of letters in each cell of 'comment text (eng)' column
 # and save it in a new column named 'Length'
 df_time['Length'] = df_time['comment text'].str.len()
 
 # If 'Length' is empty or 0, put 100 instead
-df_time['Length'].fillna(100, inplace=True)  # Fill NaN values with 100
-df_time['Length'].replace(0, 100, inplace=True)  # Replace 0 values with 100
+df_time['Length'].fillna(10, inplace=True)  # Fill NaN values with 100
+df_time['Length'].replace(0, 10, inplace=True)  # Replace 0 values with 100
 
 # Step 3: Find the maximum value in the 'Length' column
 max_length = df_time['Length'].max()
@@ -141,4 +140,4 @@ max_length = df_time['Length'].max()
 df_time['normalized_length'] = (10 * np.log(df_time['Length'])) / np.log(max_length)
 
 # Save the new dataframe to an Excel file in the same directory
-df_time.to_excel(os.path.join(dir_path, 'deneme.xlsx'), index=False)
+df_time.to_excel(os.path.join(dir_path, 'conceptioncomments_structured.xlsx'), index=False)
