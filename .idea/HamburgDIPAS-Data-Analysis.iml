@@ -3,6 +3,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/scripts/data_visualization_interactive_map/map_data" />
+      <excludeFolder url="file://$MODULE_DIR$/data" />
+      <excludeFolder url="file://$MODULE_DIR$/results" />
+      <excludeFolder url="file://$MODULE_DIR$/results/visuals" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10 (HamburgDIPAS-Data-Analysis)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
