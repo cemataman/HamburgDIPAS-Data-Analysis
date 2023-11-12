@@ -12,8 +12,6 @@ The DIPAS dataset is multifaceted: it incorporates multiple projects, each conta
 These topics, in turn, feature numerous comments and replies. 
 Consequently, a hierarchical analysis of the dataset is imperative.
 
-
-
 ## Citation
 Please include the following citation if you are interested in using the introduced methods:
 
