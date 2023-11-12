@@ -3,7 +3,7 @@ import plotly.express as px
 import plotly.io as pio
 
 ### Import data from the excel file and delete the null rows
-df = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/deneme.xlsx')
+df = pd.read_excel('/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/xx. Stadteingang Elbbruecken/conceptioncomments_structured.xlsx')
 
 ### Sort the dataframe based on the sentiment scores in ascending order
 df = df.sort_values(by='sentiment scores')
@@ -16,7 +16,20 @@ reply_int = [str(x) for x in df['reply'].values.tolist()]
 reply = [str(x) for x in reply_int]
 # print('child: ' , reply)
 
-label = [str(x) for x in df['comment text (eng)'].values.tolist()]
+def split_text(text, char_limit=100):
+    words = text.split()
+    result = ''
+    line = ''
+    for word in words:
+        if len(line) + len(word) + 1 > char_limit:
+            result += line + '<br>'
+            line = ''
+        line += ' ' + word
+    result += line
+    return result.strip()
+
+# Modify the label data to include line breaks
+label = [split_text(str(x)) for x in df['comment text (eng)'].values.tolist()]
 # print('label: ' , label)
 
 value = df['sentiment scores'].values.tolist()
@@ -41,7 +54,7 @@ fig = px.sunburst(
     ### define color
     color="value",
     # color_discrete_sequence=px.colors.qualitative.Pastel, ### if it is textual data
-    color_continuous_scale=px.colors.sequential.Emrld,  ### if it is numeric data --> check https://plotly.com/python/builtin-colorscales/#using-builtin-continuous-color-scales
+    color_continuous_scale=px.colors.sequential.Emrld[::-1],  ### if it is numeric data --> check https://plotly.com/python/builtin-colorscales/#using-builtin-continuous-color-scales
     range_color=[-1, 1],
 
     ### define text

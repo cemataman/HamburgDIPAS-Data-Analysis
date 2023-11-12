@@ -6,7 +6,7 @@ import os
 import plotly
 import plotly.io as pio
 
-path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/xx. Stadteingang Elbbruecken/conceptioncomments_structured.xlsx'
+path = '/Users/cem_ataman/PycharmProjects/HamburgDIPAS-Data-Analysis/data/Drupal 8 (2020-21)/41. Magistrale Wandsbek/conceptioncomments_structured.xlsx'
 
 # get the folder name where the Excel file is saved
 folder_name = os.path.basename(os.path.dirname(path))

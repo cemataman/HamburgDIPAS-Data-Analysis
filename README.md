@@ -47,8 +47,8 @@ Please make sure to replace the file path with that of your own dataset.
         - *data_visualization_text_network_2D.py*: Provides 2D text-network diagrams to visualize temporal and length-related aspects of the discussions.
         - *data_visualization_text_network_3D.py*: Features 3D text-network diagrams to serve the same purpose in a more comprehensive manner.
     - **data_visualization_interactive_map**
-        - *map.js*:
-        - *index.html*:
+        - *map.js*: Creates an interactive map with Leaflet.js, displaying custom-colored markers based on sentiment scores from CSV file data.
+        - *index.html*: Creates a webpage with an interactive map, integrating external Leaflet.js and PapaParse libraries, and includes a CSV file upload input and a div for the map display.
     - **for multiple files**
         - *data_translation.py*: Translates data from German to English (Note: D7 and D8 are distinct data structures, yet the translation script is applicable to both).
         - *sentiment_analysis.py*: Computes the sentiment scores for each argument.
